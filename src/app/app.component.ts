@@ -10,7 +10,8 @@ import { DashboardPage } from '../pages/dashboard/dashboard';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  // rootPage:any = HomePage;
+  rootPage:any = DashboardPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

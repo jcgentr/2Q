@@ -22,16 +22,16 @@
   <div class="card">
     <ion-list *ngFor="let item of items">
       {{item.question}}
-      <button ion-item (click)="recordAnswer(item.ans1)">
+      <button ion-button (click)="recordAnswer(item.ans1)">
         {{item.ans1}}
       </button>
-      <button ion-item (click)="recordAnswer(item.ans2)">
+      <button ion-button (click)="recordAnswer(item.ans2)">
         {{item.ans2}}
       </button>
-      <button ion-item (click)="recordAnswer(item.ans3)">
+      <button ion-button (click)="recordAnswer(item.ans3)">
         {{item.ans3}}
       </button>
-      <button ion-item (click)="presentAlert()">
+      <button ion-button (click)="presentAlert()">
         ALERT used for Question
       </button>
     </ion-list>
