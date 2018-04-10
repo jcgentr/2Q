@@ -1,6 +1,6 @@
 {
   "name": "2Q",
-  "app_id": "",
+  "app_id": "c900dd0f",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
