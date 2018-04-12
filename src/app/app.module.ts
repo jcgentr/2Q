@@ -10,6 +10,7 @@ import { HomePage } from '../pages/home/home';
 import { DataProvider } from '../providers/data/data';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { EditProfilePage } from '../pages/edit-profile/edit-profile';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DataProvider
+    DataProvider,
+    Camera
   ]
 })
 export class AppModule {}

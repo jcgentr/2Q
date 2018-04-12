@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 /**
  * Generated class for the EditProfilePage page.
@@ -20,7 +21,7 @@ export class EditProfilePage {
   year;
   imageurl;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private camera: Camera, public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams) {
   	this.imageurl = "../../assets/imgs/profile.png";
   }
 
@@ -33,7 +34,30 @@ export class EditProfilePage {
 
   }
 
-  takePicture(){
-  	console.log("Taking Picture...");
+  options: CameraOptions = {
+    quality: 100,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE,
+    correctOrientation: true
   }
+
+  takePicture(){
+    this.camera.getPicture(this.options).then((imageData) => {
+       // imageData is either a base64 encoded string or a file URI
+       // If it's base64:
+       let base64Image = 'data:image/jpeg;base64,' + imageData;
+       this.imageurl = base64Image;
+
+    }, (err) => {
+       // The picture failed.
+        let alertt = this.alertCtrl.create({
+          title: 'Picture Failed!',
+          buttons: ['Dismiss']
+        });
+        alertt.present();
+    });
+  }
+
+
 }
