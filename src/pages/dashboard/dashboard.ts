@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { EditProfilePage } from '../edit-profile/edit-profile';
 
 /**
  * Generated class for the DashboardPage page.
@@ -27,6 +28,10 @@ export class DashboardPage {
   presentStream() {
   	let streamModal = this.modalCtrl.create(HomePage, { });
    	streamModal.present();
+  }
+
+  editProfile() {
+  	this.navCtrl.push(EditProfilePage);
   }
 
 }

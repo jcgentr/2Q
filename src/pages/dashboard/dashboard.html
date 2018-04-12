@@ -6,13 +6,23 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>User's Dashboard</ion-title>
+    <ion-title>Dashboard</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="editProfile()">
+       	Edit
+      </button>
+    </ion-buttons>
   </ion-navbar>
+  
 </ion-header>
 <ion-content padding>
   <p class="logo">
-  	Profile Pic
+  	Jared Gentry <br><br>
     <img src="../../assets/imgs/profile.png" />
+    <br> Gender: Male
+    <br> Age: 23
+    <br> Major: Computer Science
+    <br> Year: Graduate Student
   </p>
   <button ion-button block (click)="presentStream()">Watch Live Stream</button>
 </ion-content>
