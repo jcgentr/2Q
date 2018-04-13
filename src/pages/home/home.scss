@@ -1,9 +1,19 @@
 page-home {
+	#button-holder{
+		text-align: center;
+	}
+	.next_or_prev{
+		margin: 40px 10% 0 10%;
+		width: 80%;
+	}
 	.card{
 		background-color: white;
-		margin: 3px 25px;
-		padding: 10px 15px 5px 15px;
+		margin: 0 10% 0 10%;
+		padding: 10px 12px 0px 12px;
 		border-radius: 8px;
+		position: fixed;
+		bottom: 0;
+		width: 80%;
 	}
 	.video-container {
 	    position: relative;
