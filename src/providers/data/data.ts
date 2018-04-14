@@ -80,4 +80,39 @@ items = [];
     
   }
 
+  getUserProfile() {
+    const User = Parse.Object.extend('User');
+
+    let query = new Parse.Query(User);
+    query.limit(1000);
+    var items=[];
+
+    query.find().then((profile) => {
+      // resolve(menus);
+      console.log(profile.length);
+      
+      
+      for (var i = 0; i < profile.length; ++i) {
+          var myprofile = {
+            firstName: profile[i].get("firstName"),
+            lastName: profile[i].get("lastName"),
+            gender: profile[i].get("gender"),
+            major: profile[i].get("major"),
+            age: profile[i].get("age"),
+            year: profile[i].get("year")
+          }
+         
+          items.push(myprofile);
+      }
+      console.log("profile loaded");
+
+    }, (error) => {
+      //reject(error);
+      console.log("error");
+    });
+
+    return items;
+    
+  }
+
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { EditProfilePage } from '../edit-profile/edit-profile';
+import { DataProvider } from '../../providers/data/data';
 
 /**
  * Generated class for the DashboardPage page.
@@ -16,8 +17,16 @@ import { EditProfilePage } from '../edit-profile/edit-profile';
   templateUrl: 'dashboard.html',
 })
 export class DashboardPage {
+  gender;
+  age;
+  major;
+  year;
+  firstName;
+  lastName;
+  items: any = [];
 
-  constructor(public modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams, public dataService: DataProvider) {
+    this.items = this.dataService.getUserProfile();
   }
 
   ionViewDidLoad() {

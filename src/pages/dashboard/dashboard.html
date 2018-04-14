@@ -16,13 +16,13 @@
   
 </ion-header>
 <ion-content padding>
-  <p class="logo">
-  	Jared Gentry <br><br>
+  <p class="logo" *ngFor="let item of items">
+  	{{item.firstName}} {{item.lastName}} <br><br>
     <img src="../../assets/imgs/profile.png" />
-    <br> Gender: Male
-    <br> Age: 23
-    <br> Major: Computer Science
-    <br> Year: Graduate Student
+    <br> <span *ngIf="item.gender==1">Gender: Male</span><span *ngIf="item.gender==0">Gender: Female</span>
+    <br> Age: {{item.age}}
+    <br> Major: {{item.major}}
+    <br> Year: {{item.year}}
   </p>
   <button ion-button block (click)="presentStream()">Watch Live Stream</button>
 </ion-content>

@@ -18,25 +18,22 @@
       </div>
     </ion-item>
   </div> -->
-  <div>
+  <!-- <div>
     <iframe class="bg-vid" src="https://www.youtube.com/embed/qyEzsAy4qeU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div> -->
+  <div>
+    <iframe class="bg-vid" src="https://www.ustream.tv/embed/23567641?html5ui" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
-  <!-- <div>
-      <video autoplay webkit-playsinline muted loop class="bg-vid">
-        <source src="http://www.w3schools.com/tags/movie.mp4" type="video/webm">
-        <source src="http://www.w3schools.com/tags/movie.mp4" type="video/mp4">
-      </video>
-  </div> -->
-  <!-- <div>
-      <video autoplay webkit-playsinline muted loop class="bg-vid">
-        <source src="https://www.youtube.com/watch?v=y3niFzo5VLI" type="video/webm">
-        <source src="https://www.youtube.com/watch?v=y3niFzo5VLI" type="video/mp4">
-      </video>
-  </div> -->
+
+
   <div class="next_or_prev">
     <ion-list>
       <div id="button-holder">
-        <button ion-button round outline color="light" icon-start (click)="prev()">
+        <button ion-button round outline color="light" icon-start (click)="prev()" *ngIf="index<0">
+          <ion-icon name="arrow-round-back"></ion-icon>
+          Q0
+        </button>
+        <button ion-button round outline color="light" icon-start (click)="prev()" *ngIf="index>=0">
           <ion-icon name="arrow-round-back"></ion-icon>
           Q{{index}}
         </button>
