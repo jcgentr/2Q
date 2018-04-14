@@ -58,7 +58,7 @@ items = [];
       console.log(questions.length);
       
       
-      for (var i = questions.length - 1; i >= 0; i--) {
+      for (var i = 0; i < questions.length; ++i) {
           var myquestions = {
             question: questions[i].get("Qtitle"),
             ans1: questions[i].get("Ans1"),
@@ -69,6 +69,7 @@ items = [];
          
           items.push(myquestions);
       }
+      console.log("questions loaded");
 
     }, (error) => {
       //reject(error);

@@ -36,33 +36,42 @@
   <div class="next_or_prev">
     <ion-list>
       <div id="button-holder">
-        <button ion-button round color="light" icon-start (click)="recordAnswer(item.ans1)">
+        <button ion-button round outline color="light" icon-start (click)="prev()">
           <ion-icon name="arrow-round-back"></ion-icon>
-          Q1
+          Q{{index}}
         </button>
-        <button ion-button round color="light" icon-end (click)="recordAnswer(item.ans2)">
-          Q2
+        <button ion-button round outline color="light" icon-end (click)="next()">
+          Q{{index+2}}
           <ion-icon name="arrow-round-forward"></ion-icon>
+        </button>
+        <br>
+         <!-- <button ion-button round outline color="light" *ngIf="index<0" >
+          Question 0
+        </button> -->
+        <button ion-button round outline color="light">
+          Question {{index+1}}
         </button>
       </div>
     </ion-list>
   </div>
   <div class="card">
-    <ion-list *ngFor="let item of items">
-      {{item.question}}
+    <ion-list> <!-- *ngFor="let item of items" --> 
+      <span id="q">{{question}}</span>
       <br>
       <br>
-      <button ion-button round color="light" (click)="recordAnswer(item.ans1)">
-        {{item.ans1}}
+      <div class="no-pad">
+      <button ion-button round color="light" class="ans" (click)="recordAnswer(ans1)">
+        {{ans1}}
       </button>
       <br>
-      <button ion-button round color="light" (click)="recordAnswer(item.ans2)">
-        {{item.ans2}}
+      <button ion-button round color="light" class="ans" (click)="recordAnswer(ans2)">
+        {{ans2}}
       </button>
       <br>
-      <button ion-button round color="light" (click)="recordAnswer(item.ans3)">
-        {{item.ans3}}
+      <button ion-button round color="light" class="ans" (click)="recordAnswer(ans3)">
+        {{ans3}}
       </button>
+      </div>
       <!-- <br>
       <button ion-button color="secondary" (click)="presentAlert()">
         ALERT used for Questions

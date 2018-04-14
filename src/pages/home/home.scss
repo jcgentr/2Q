@@ -1,13 +1,21 @@
 page-home {
+	.ans{
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	#q{
+		font: 15px arial, sans-serif;
+		color: white;
+	}
 	#button-holder{
 		text-align: center;
 	}
 	.next_or_prev{
-		margin: 40px 10% 0 10%;
+		margin: 50px 10% 0 10%;
 		width: 80%;
 	}
 	.card{
-		background-color: white;
+		background-color: black;
 		margin: 0 10% 0 10%;
 		padding: 10px 12px 0px 12px;
 		border-radius: 8px;
