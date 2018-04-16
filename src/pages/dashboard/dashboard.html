@@ -4,25 +4,60 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-  <ion-navbar>
-    <ion-title>Dashboard</ion-title>
-    <ion-buttons end>
-      <button ion-button (click)="editProfile()">
-       	Edit
-      </button>
-    </ion-buttons>
-  </ion-navbar>
+
   
-</ion-header>
-<ion-content padding>
-  <p class="logo" *ngFor="let item of items">
-  	{{item.firstName}} {{item.lastName}} <br><br>
-    <img src="../../assets/imgs/profile.png" />
-    <br> <span *ngIf="item.gender==1">Gender: Male</span><span *ngIf="item.gender==0">Gender: Female</span>
-    <br> Age: {{item.age}}
-    <br> Major: {{item.major}}
-    <br> Year: {{item.year}}
-  </p>
-  <button ion-button block (click)="presentStream()">Watch Live Stream</button>
+    
+    
+
+<ion-content  text-center padding class="bg">
+
+<ion-img src="../assets/imgs/2Q_logo.jpeg" class="logo"></ion-img>
+
+<p class="info">NEXT GAME 9pm EDT Bachelorette: Hannah</p>
+
+<ion-card class ="profile">
+
+  <ion-grid>
+
+    <ion-row >
+    <ion-img src="../assets/imgs/rabbit-icon.png" class="profile-pic"></ion-img>
+    <button ion-button round color="secondary" (click)="editProfile()" end><ion-icon name="create"></ion-icon></button>
+    <ion-item text-wrap *ngFor="let item of items">
+      <p class="user">{{item.firstName}} {{item.lastName}}</p>
+    </ion-item>
+    </ion-row>
+
+
+      <ion-row>
+        <ion-col class="column">
+            <p>MATCHES</p>
+            <h1>0</h1>
+        </ion-col>
+        <ion-col class="column">
+             <p>BIO</p>
+            <ion-item text-wrap *ngFor="let item of items">
+            <p>
+              <span *ngIf="item.gender==1">Male</span><span *ngIf="item.gender==0">Female</span>
+              Age: {{item.age}}
+              Major: {{item.major}}
+              Year: {{item.year}}
+            </p>
+            </ion-item>
+
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+            <p>EXTRA LIVES</p>
+            <h1>-</h1>
+        </ion-col>
+   
+      </ion-row>
+  </ion-grid>
+
+
+
+</ion-card>
+
+  <button ion-button round color="secondary" (click)="presentStream()" ><p>Join</p></button>
 </ion-content>

@@ -1,13 +1,56 @@
 page-dashboard {
-	img {
-		width: 100px;
-		height: 100px;
-		display: block;
-   		margin-left: auto;
-    	margin-right: auto;
+	.bg {
+		background: #cc0000;
+		backgorund-size: cover;
 	}
-	.logo {
-		text-align: center;
+
+	.logo{
+		width: 75px;
+		height: 75px;
 	}
+
+	.profile {
+
+		margin-top: 15%;
+		-webkit-border-radius: 10px;
+    	border-radius: 10px;
+
+
+
+	}
+
+	
+
+	.column{
+		width:50%;
+		border: 1px solid #ddd;
+
+	}
+	.profile-pic{
+    width:50px;
+    height:50px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    text-align: center;
+	}
+
+	.user{
+		font-weight: bold;
+		color: #cc0000;
+	}
+
+	
+	p {
+		font-weight: bold;
+	}
+	h1{
+		font-weight: bold;
+		color: #cc0000;
+	}
+	.info{
+		font-weight: bold;
+		color: #ffffff;
+	}
+
 	
 }
