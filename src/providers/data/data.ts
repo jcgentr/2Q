@@ -99,7 +99,8 @@ items = [];
             gender: profile[i].get("gender"),
             major: profile[i].get("major"),
             age: profile[i].get("age"),
-            year: profile[i].get("year")
+            year: profile[i].get("year"),
+            imageurl: profile[i].get("imageurl")
           }
          
           items.push(myprofile);

@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 import { HomePage } from '../home/home';
 import { EditProfilePage } from '../edit-profile/edit-profile';
 import { DataProvider } from '../../providers/data/data';
-
+import { Events} from 'ionic-angular';
 /**
  * Generated class for the DashboardPage page.
  *
@@ -23,14 +23,23 @@ export class DashboardPage {
   year;
   firstName;
   lastName;
+  imageurl;
   items: any = [];
 
-  constructor(public modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams, public dataService: DataProvider) {
+  constructor(public events: Events, public modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams, public dataService: DataProvider) {
     this.items = this.dataService.getUserProfile();
+    this.events.subscribe("updateProfile", (updateProfile) => {
+      this.items[0].gender = updateProfile.gender;
+      this.items[0].age = updateProfile.age;
+      this.items[0].year = updateProfile.year;
+      this.items[0].major = updateProfile.major;
+      this.items[0].imageurl = updateProfile.imageurl;
+    });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DashboardPage');
+    
   }
 
 
@@ -40,7 +49,9 @@ export class DashboardPage {
   }
 
   editProfile() {
-  	this.navCtrl.push(EditProfilePage);
+  	this.navCtrl.push(EditProfilePage,{
+      items: this.items
+    });
   }
 
 }

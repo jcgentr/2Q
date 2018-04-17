@@ -16,6 +16,7 @@ export class HomePage {
     ans3;
     cAns;
     index=-1;
+    show=0;
 
     testRadioOpen = false;
     testRadioResult: any;
@@ -32,10 +33,22 @@ export class HomePage {
 
   recordAnswer(ans){
   	console.log("Answer is " + ans);
-  	console.log("Correct answer was " + this.items[0].cAns);
-  	if(this.items[0].cAns == ans) {
+  	console.log("Correct answer was " + this.cAns);
+  	if(this.cAns == ans) {
   		console.log("Moving on to next question");
-  	}
+      let alertt = this.alertCtrl.create({
+          title: 'Correct! Moving on to next question!',
+          buttons: ['Ok']
+        });
+        alertt.present();
+  	} else {
+      console.log("Eliminated");
+      let alert = this.alertCtrl.create({
+          title: 'Incorrect! You have been eliminated!',
+          buttons: ['Ok']
+        });
+        alert.present();
+    }
   }
 
   prev(){
@@ -62,6 +75,12 @@ export class HomePage {
     this.ans3 = this.items[this.index].ans3;
     this.cAns = this.items[this.index].cAns;
     
+  }
+
+  showQuestions() {
+    // show = 0 means don't show questions
+    // show = 1 means show questions
+    this.show = 1 - this.show;
   }
 
   // presentAlert() {

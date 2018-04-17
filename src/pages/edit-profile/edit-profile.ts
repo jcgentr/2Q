@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ViewController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Parse } from 'parse';
+import { Events} from 'ionic-angular';
 
 /**
  * Generated class for the EditProfilePage page.
@@ -21,17 +23,52 @@ export class EditProfilePage {
   year;
   imageurl;
 
-  constructor(private camera: Camera, public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams) {
-  	this.imageurl = "../../assets/imgs/profile.png";
+  constructor(private camera: Camera, public events: Events, public navCtrl: NavController, public view: ViewController, public alertCtrl: AlertController, public navParams: NavParams) {
+  
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditProfilePage');
+    this.gender = this.navParams.get('items')[0].gender;
+    console.log(this.gender);
+    this.age = this.navParams.get('items')[0].age;
+    this.major = this.navParams.get('items')[0].major;
+    this.imageurl = this.navParams.get('items')[0].imageurl;
+    console.log(this.imageurl);
+    this.year = this.navParams.get('items')[0].year;
   }
 
   saveProfile() {
-  	console.log("Saving Profile...");
-
+    console.log("Saving Profile...");
+    console.log(this.gender);
+    console.log(this.age);
+    var self = this;
+    var user = Parse.User.logIn("jg", "jg", {
+      success: function(user) { 
+      }
+    });
+    var curr=Parse.User.current();
+    console.log(curr.id);
+    curr.set("gender", self.gender);
+    curr.set("age", self.age);
+    curr.set("major",self.major);
+    curr.set("year", self.year);
+    // curr.set("imageurl", this.imageurl);
+    curr.save(null, {
+      success: function(profile) {
+        console.log("UPDATED PROFILE");
+      }
+    });
+    let updateProfile = {
+      gender: this.gender,
+      age: this.age,
+      major: this.major,
+      year: this.year,
+      imageurl: this.imageurl
+    }; 
+    this.events.publish('updateProfile',updateProfile);
+    this.view.dismiss();
+    
   }
 
   options: CameraOptions = {

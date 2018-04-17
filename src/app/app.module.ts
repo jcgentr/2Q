@@ -11,13 +11,17 @@ import { DataProvider } from '../providers/data/data';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 import { Camera } from '@ionic-native/camera';
+import { SigninPage } from '../pages/signin/signin';
+import { SignupPage } from '../pages/signup/signup';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     DashboardPage,
-    EditProfilePage
+    EditProfilePage,
+    SigninPage,
+    SignupPage
   ],
   imports: [
     HttpModule,
@@ -30,7 +34,9 @@ import { Camera } from '@ionic-native/camera';
     MyApp,
     HomePage,
     DashboardPage,
-    EditProfilePage
+    EditProfilePage,
+    SignupPage,
+    SigninPage
   ],
   providers: [
     StatusBar,
