@@ -5,42 +5,43 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title>Edit Profile</ion-title>
+  <ion-navbar color="secondary">
+    <ion-title><p>Edit Profile</p></ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
+<ion-content padding id="grad">
   <ion-list>
-    <ion-item>
-      <ion-buttons>
-        <button ion-button icon-only (click)="takePicture()">
+    <ion-item id="container">
+      
+        <button ion-button icon-only color="secondary" (click)="takePicture()">
           <ion-icon name="camera"></ion-icon>
-        </button> Take Picture
+        </button>
+        <p>Take Picture</p>
         <br> <img src={{imageurl}}/>
-      </ion-buttons>
+     
     </ion-item>
     <br>
-    <ion-item>
-      <ion-label>Gender</ion-label>
+    <ion-item id="rounded">
+      <ion-label><p>Gender</p></ion-label>
       <ion-select interface="popover" [(ngModel)]="year">
         <ion-option value="male">Male</ion-option>
         <ion-option value="female">Female</ion-option>
       </ion-select>
     </ion-item>
     <br>
-    <ion-item>
-      <ion-label floating>Age</ion-label>
+    <ion-item id="rounded">
+      <ion-label floating><p>Age</p></ion-label>
       <!-- restrict numbers to 18 - 35 -->
       <ion-input type="number" [(ngModel)]="age"></ion-input>
     </ion-item>
     <br>
-    <ion-item>
-      <ion-label floating>Major</ion-label>
+    <ion-item id="rounded">
+      <ion-label floating><p>Major</p></ion-label>
       <ion-input type="text" [(ngModel)]="major"></ion-input>
     </ion-item>
    	<br>
-    <ion-item>
-      <ion-label>Year</ion-label>
+    <ion-item id="rounded">
+      <ion-label><p>Year<p></ion-label>
       <ion-select interface="popover" [(ngModel)]="year">
         <ion-option value="fresh">Freshman</ion-option>
         <ion-option value="soph">Sophmore</ion-option>
@@ -50,5 +51,5 @@
       </ion-select>
     </ion-item>
   </ion-list>
-  <button block ion-button color="primary" (click)="saveProfile()">Save</button>
+  <button ion-button round color="secondary" (click)="saveProfile()"><p>Save</p></button>
 </ion-content>
