@@ -9,6 +9,12 @@
 <ion-img src="../assets/imgs/2Q_logo.jpeg" class="logo"></ion-img>
 
 <p class="info">NEXT GAME 9pm EDT Bachelorette: Hannah</p>
+<div class="heart"></div>
+<div class="heart2"></div>
+
+
+
+
 
 <ion-card class ="profile">
 
@@ -17,8 +23,14 @@
     <ion-row *ngFor="let item of items">
       
     <ion-img src="../assets/imgs/rabbit-icon.png" class="profile-pic"></ion-img>
+<<<<<<< HEAD
     <button ion-button round small color="secondary" (click)="editProfile()" end><ion-icon name="create"></ion-icon></button>
     <ion-item text-wrap >
+=======
+    <button ion-button round color="secondary" (click)="editProfile()" end><ion-icon name="create"></ion-icon></button>
+
+    <ion-item text-wrap *ngFor="let item of items">
+>>>>>>> c85e331803f730567aa9ae4eb691120396128e94
       <p class="user">{{item.firstName}} {{item.lastName}}</p>
     </ion-item>
     </ion-row>
@@ -50,6 +62,8 @@
    
       </ion-row>
   </ion-grid>
+
+  
 
 
 

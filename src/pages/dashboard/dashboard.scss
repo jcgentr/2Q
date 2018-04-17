@@ -17,6 +17,9 @@ page-dashboard {
 
 
 
+
+
+
 	}
 
 	
@@ -51,6 +54,100 @@ page-dashboard {
 		font-weight: bold;
 		color: #ffffff;
 	}
+
+	body {
+  		cursor: url('https://ionicframework.com/img/finger.png'), auto;
+	}
+
+	.heart {
+  background-color: purple;
+  display: inline-block;
+  height: 30px;
+  margin: 0 10px;
+  position: relative;
+  top: 0;
+  transform: rotate(-45deg);
+  width: 10px;
+}
+.heart {
+  fill: purple;
+  position: relative;
+  top: 5px;
+  width: 30px;
+  animation: pulse 2s ease infinite, 
+}
+
+
+.heart:before,
+.heart:after {
+  content: "";
+  background-color: purple;
+  border-radius: 50%;
+  height: 30px;
+  position: absolute;
+  width: 30px;
+}
+
+.heart:before {
+  top: 15px;
+  left: 0;
+}
+
+.heart:after {
+  left: -15px;
+  top: 0;
+}
+
+.heart2 {
+  background-color: #ffcc00;
+  display: inline-block;
+  height: 30px;
+  margin: 0 10px;
+  position: relative;
+  top: 0;
+  transform: rotate(-45deg);
+  width: 10px;
+  z-index: -1;
+}
+.heart2 {
+  fill: #ffcc00;
+  position: relative;
+  top: 5px;
+  width: 30px;
+  animation: pulse 2s ease infinite, 
+}
+
+
+.heart2:before,
+.heart2:after {
+  content: "";
+  background-color: #ffcc00;
+  border-radius: 50%;
+  height: 30px;
+  position: absolute;
+  width: 30px;
+}
+
+.heart2:before {
+  top: -15px;
+  left: 0;
+}
+
+.heart2:after {
+  left: 15px;
+  top: 0;
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.7); }
+  100% { transform: scale(1); }
+}
+
+
+
+
+
+	
 
 	
 }

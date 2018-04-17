@@ -5,7 +5,31 @@ page-edit-profile {
 		display: block;
    		margin-left: auto;
     	margin-right: auto;
+    	-webkit-border-radius: 50%;
     	border-radius: 50%;
 	}
+
+	p {
+		font-weight: bold;
+	}
+
+	#grad {
+    background: linear-gradient(red, black);
+	}
+	#rounded {
+        width: 100%;
+        height: 75px;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 10px;
+        
+    }
+    #container {
+    	width: 100%;
+    	height: 200px;
+    	-moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 10px;
+    }
 
 }
