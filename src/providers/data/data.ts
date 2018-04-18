@@ -81,36 +81,25 @@ items = [];
   }
 
   getUserProfile() {
-    const User = Parse.Object.extend('User');
-
-    let query = new Parse.Query(User);
-    query.limit(1000);
     var items=[];
-
-    query.find().then((profile) => {
-      // resolve(menus);
-      console.log(profile.length);
-      
-      
-      for (var i = 0; i < profile.length; ++i) {
-          var myprofile = {
-            firstName: profile[i].get("firstName"),
-            lastName: profile[i].get("lastName"),
-            gender: profile[i].get("gender"),
-            major: profile[i].get("major"),
-            age: profile[i].get("age"),
-            year: profile[i].get("year"),
-            imageurl: profile[i].get("imageurl")
+    var currentUser = Parse.User.current();
+    if (currentUser) {
+        // do stuff with the user
+        var myprofile = {
+            firstName: currentUser.get("firstName"),
+            lastName:currentUser.get("lastName"),
+            gender: currentUser.get("gender"),
+            major: currentUser.get("major"),
+            age: currentUser.get("age"),
+            year: currentUser.get("year"),
+            imageurl: currentUser.get("imageurl")
           }
-         
           items.push(myprofile);
-      }
-      console.log("profile loaded");
-
-    }, (error) => {
-      //reject(error);
-      console.log("error");
-    });
+          console.log("profile loaded");
+    } else {
+        // show the signup or login page
+        console.log("could not get current user");
+    }
 
     return items;
     

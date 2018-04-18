@@ -35,12 +35,22 @@ export class HomePage {
   	console.log("Answer is " + ans);
   	console.log("Correct answer was " + this.cAns);
   	if(this.cAns == ans) {
-  		console.log("Moving on to next question");
-      let alertt = this.alertCtrl.create({
-          title: 'Correct! Moving on to next question!',
-          buttons: ['Ok']
-        });
-        alertt.present();
+      if(this.index == 11){
+        console.log("You won");
+        let alertt = this.alertCtrl.create({
+            title: 'Congrats! You are a winner!',
+            buttons: ['Ok']
+         });
+         alertt.present();
+      } else {
+        console.log("Moving on to next question");
+        let alertt = this.alertCtrl.create({
+            title: 'Correct! Moving on to next question!',
+            buttons: ['Ok']
+         });
+         alertt.present();
+      }
+  		
   	} else {
       console.log("Eliminated");
       let alert = this.alertCtrl.create({
@@ -65,8 +75,8 @@ export class HomePage {
   }
   next(){
     this.index += 1;
-    if(this.index > 1){
-      this.index = 1;
+    if(this.index > 11){
+      this.index = 11;
     }
     console.log(this.index);
     this.question = this.items[this.index].question;

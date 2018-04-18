@@ -23,17 +23,10 @@ export class SignupPage {
 
   // TODO: form validation
   public doRegister() {
-    // let loader = this.loadCtrl.create({
-    //   content: 'Signing up...'
-    // });
-    // loader.present();
-
-    // this.authPvdr.signup(this.username, this.password, this.email).subscribe((success) => {
-    //   this.navCtrl.setRoot(TabsPage);
-    //   loader.dismissAll();
-    // }, (error) => {
-    //   loader.dismissAll();
-    // });
+    let loader = this.loadCtrl.create({
+      content: 'Signing up...'
+    });
+    loader.present();
 
     var user = new Parse.User();
       user.set("username", this.username);
@@ -46,11 +39,13 @@ export class SignupPage {
       var self=this;
       user.signUp(null, {
         success: function(user) {
+          loader.dismissAll();
           // Hooray! Let them use the app now.
           console.log("signup success "+user.get("username"));
           self.navCtrl.pop();
         },
         error: function(user, error) {
+          loader.dismissAll();
           // Show the error message somewhere and let the user try again.
           alert("Error: " + error.code + " " + error.message);
         }

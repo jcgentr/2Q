@@ -42,18 +42,17 @@ export class EditProfilePage {
     console.log("Saving Profile...");
     console.log(this.gender);
     console.log(this.age);
-    var self = this;
     var user = Parse.User.logIn("jg", "jg", {
       success: function(user) { 
       }
     });
     var curr=Parse.User.current();
     console.log(curr.id);
-    curr.set("gender", self.gender);
-    curr.set("age", self.age);
-    curr.set("major",self.major);
-    curr.set("year", self.year);
-    // curr.set("imageurl", this.imageurl);
+    curr.set("gender", this.gender);
+    curr.set("age", this.age);
+    curr.set("major",this.major);
+    curr.set("year", this.year);
+    curr.set("imageurl", this.imageurl);
     curr.save(null, {
       success: function(profile) {
         console.log("UPDATED PROFILE");

@@ -28,6 +28,7 @@ export class DashboardPage {
 
   constructor(public events: Events, public modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams, public dataService: DataProvider) {
     this.items = this.dataService.getUserProfile();
+    console.log(this.items);
     this.events.subscribe("updateProfile", (updateProfile) => {
       this.items[0].gender = updateProfile.gender;
       this.items[0].age = updateProfile.age;
