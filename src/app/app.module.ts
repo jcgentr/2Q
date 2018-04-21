@@ -13,6 +13,7 @@ import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 import { Camera } from '@ionic-native/camera';
 import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
+import { Facebook } from '@ionic-native/facebook';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { SignupPage } from '../pages/signup/signup';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataProvider,
-    Camera
+    Camera,
+    Facebook
   ]
 })
 export class AppModule {}

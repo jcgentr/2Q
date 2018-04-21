@@ -42,10 +42,6 @@ export class EditProfilePage {
     console.log("Saving Profile...");
     console.log(this.gender);
     console.log(this.age);
-    var user = Parse.User.logIn("jg", "jg", {
-      success: function(user) { 
-      }
-    });
     var curr=Parse.User.current();
     console.log(curr.id);
     curr.set("gender", this.gender);

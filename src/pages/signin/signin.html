@@ -22,6 +22,29 @@
       </div>
 
     </ion-list>
-    </form>
+  </form>
+
+  Facebook Login
+  <div *ngIf="isLoggedIn; else facebookLogin">
+    <h2>Hi, {{users.name}} ({{users.email}})</h2>
+    <p>
+      Gender: {{users.gender}}
+    </p>
+    <p>
+      <img src="{{users.picture.data.url}}" width="100" alt="{{users.name}}" />
+    </p>
+    <p>
+      <button ion-button icon-right (click)="logoutWithFB()">
+        Logout
+      </button>
+    </p>
+  </div>
+  <ng-template #facebookLogin>
+    <button ion-button icon-right (click)="loginWithFB()">
+      Login with
+      <ion-icon name="logo-facebook"></ion-icon>
+    </button>
+  </ng-template>
+  
 
 </ion-content>
