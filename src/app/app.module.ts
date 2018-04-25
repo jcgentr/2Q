@@ -14,6 +14,7 @@ import { Camera } from '@ionic-native/camera';
 import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
 import { Facebook } from '@ionic-native/facebook';
+import { Push } from '@ionic-native/push';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { Facebook } from '@ionic-native/facebook';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataProvider,
     Camera,
-    Facebook
+    Facebook,
+    Push
   ]
 })
 export class AppModule {}
